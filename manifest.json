@@ -1,0 +1,30 @@
+{
+  "name": "Hello World!",
+  "version":"1.0",
+  "manifest_version":2,
+  "description": "My first Chrome extension.",
+  "permissions": ["activeTab","tabs","http://*/","https://*/"],
+  "browser_action": {
+    "default_icon": "MushroomIcon.png",
+     "default_title": "Click here!"
+  },
+  "background": {
+    //"page":"background.html",
+    "scripts": ["background.js","red.js","search.js"],
+    "persistent": false
+    },
+
+  //these run whenever those matches are found...
+  // "content_scripts": [ {
+  //   "js": ["background.js","red.js","search.js"],
+  //   // "css": ["customStyles.css"],
+  //   "matches": [ "http://www.google.com/*", "https://www.google.com/*"]
+  // }],
+
+  "options_ui": {
+    // Required.
+    "page": "options.html",
+    // Recommended.
+    "chrome_style": true
+  }
+}
