@@ -6,7 +6,7 @@
   "permissions": ["storage","activeTab","tabs","http://*/","https://*/"],
   "browser_action": {
     "default_icon": "icons/MushroomIcon.png",
-    "default_title": "Turn on White Noise"
+    "default_title": "Player 2 Start"
   },
   "icons":{
     "16":"/icons/MushroomIcon.png",
