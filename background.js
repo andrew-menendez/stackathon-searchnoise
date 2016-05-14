@@ -15,7 +15,7 @@ var doSearch = function(_tab){
             code:'var'
           })
 
-          chrome.tabs.executeScript(baseTab.id,{file:"search.js"},function(array){
+          chrome.tabs.executeScript(baseTab.id,{file:"/scripts/search.js"},function(array){
             console.log('executed search.js');
               setTimeout(doClick, 3000,baseTab);
             });
@@ -25,7 +25,7 @@ var doSearch = function(_tab){
 var doClick = function(_tab){
 
     if(state==="on") {
-      chrome.tabs.executeScript(baseTab.id,{file:"red.js"},function(array){
+      chrome.tabs.executeScript(baseTab.id,{file:"/scripts/click.js"},function(array){
 
             setTimeout(function(){
                 chrome.tabs.update(baseTab.id,{url:newURL}, function(array){

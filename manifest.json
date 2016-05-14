@@ -7,7 +7,6 @@
   "browser_action": {
     "default_icon": "icons/MushroomIcon.png",
     "default_title": "Turn on White Noise"
-    // "default_popup": "popup.html"
   },
   "icons":{
     "16":"/icons/MushroomIcon.png",
@@ -16,20 +15,13 @@
   },
   "background": {
     //"page":"background.html",
-    "scripts": ["background.js","red.js","search.js"],
+    "scripts": ["background.js","/scripts/click.js","/scripts/search.js"],
     "persistent": false
     },
 
-  //these run whenever those matches are found...
-  // "content_scripts": [ {
-  //   "js": ["background.js","red.js","search.js"],
-  //   // "css": ["customStyles.css"],
-  //   "matches": [ "http://www.google.com/*", "https://www.google.com/*"]
-  // }],
-
   "options_ui": {
     // Required.
-    "page": "options.html",
+    "page": "/options/options.html",
     // Recommended.
     "chrome_style": true
   }
