@@ -5,8 +5,22 @@ var state;
 var newURL = "http://www.google.com/";
 var baseTab;
 
+var _seconds;
+
+
+
+chrome.storage.sync.get('timeSetting', function(value) {
+  _seconds=value.timeSetting;
+  console.log('seconds set to',_seconds);
+})
 
 var doSearch = function(_tab){
+
+  chrome.storage.sync.get('timeSetting', function(value) {
+
+      _seconds=value.timeSetting;
+      console.log('seconds set to',_seconds);
+        var miliseconds=_seconds*1000;
         var tab=_tab;
         console.log(baseTab.id)
 
@@ -18,21 +32,24 @@ var doSearch = function(_tab){
 
           chrome.tabs.executeScript(baseTab.id,{file:"/scripts/search.js"},function(array){
             console.log('executed search.js');
-              setTimeout(doClick, 5000,baseTab);
+              setTimeout(doClick, miliseconds,baseTab);
             });
         };
+
+    });
 };
 
 var doClick = function(_tab){
+    var miliseconds=_seconds*1000;
 
     if(state==="on") {
       chrome.tabs.executeScript(baseTab.id,{file:"/scripts/click.js"},function(array){
 
             setTimeout(function(){
                 chrome.tabs.update(baseTab.id,{url:newURL}, function(array){
-                setTimeout(doSearch, 2000,baseTab);
+                setTimeout(doSearch, miliseconds,baseTab);
               })
-            },5000);
+            },miliseconds);
 
           });
     };

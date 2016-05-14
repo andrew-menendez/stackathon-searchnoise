@@ -1,8 +1,10 @@
 // Saves options to chrome.storage.sync.
 function save_options() {
   var topic = document.getElementById('topic').value;
+  var time= document.getElementById('seconds').value;
   chrome.storage.sync.set({
-    adTopic: topic
+    adTopic: topic,
+    timeSetting:time
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
