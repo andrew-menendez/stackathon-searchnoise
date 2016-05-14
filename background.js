@@ -6,6 +6,8 @@
 
 chrome.browserAction.onClicked.addListener(function(tab) {
 
+  var newURL = "http://www.google.com/";
+
   var operation="search";
 
   var toggleOp = function(_operation){
@@ -40,8 +42,7 @@ var doSearch = function(_tab){
 
     if(_tab.Id===baseTab.Id){
        chrome.tabs.executeScript(baseTab.id,{file:"search.js"},function(array){
-
-        setTimeout(doClick, 2000,baseTab);
+        setTimeout(doClick, 3000,baseTab);
       });
     }
 
@@ -49,11 +50,17 @@ var doSearch = function(_tab){
   };
 var doClick = function(_tab){
   chrome.tabs.executeScript(baseTab.id,{file:"red.js"},function(array){
-        setTimeout(doSearch, 2000,baseTab);
+
+        setTimeout(function(){
+            chrome.tabs.update(baseTab.id,{url:newURL}, function(array){
+            setTimeout(doSearch, 2000,baseTab);
+          })
+        },4000);
+
       });
 };
 
-  var newURL = "http://www.google.com/";
+
 
   chrome.tabs.create({ url: newURL }, function(_tab){
     console.log(_tab);

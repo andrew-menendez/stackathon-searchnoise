@@ -1,7 +1,7 @@
 
 
 console.log('search');
-
+window.location.href = 'https://www.google.com/';
 
 var _formArray=document.querySelectorAll('form');
 
