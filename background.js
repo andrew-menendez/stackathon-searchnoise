@@ -9,16 +9,29 @@ var _seconds;
 
 
 
-chrome.storage.sync.get('timeSetting', function(value) {
-  _seconds=value.timeSetting;
-  console.log('seconds set to',_seconds);
-})
+// chrome.storage.sync.get('timeSetting', function(value) {
+//   if(value.timeSetting){
+//     _seconds=value.timeSetting;
+//     console.log('seconds set to',_seconds);
+//   } else {
+//     _seconds=4;
+//   };
+
+// })
 
 var doSearch = function(_tab){
 
   chrome.storage.sync.get('timeSetting', function(value) {
 
-      _seconds=value.timeSetting;
+    if(value.timeSetting){
+        _seconds=value.timeSetting;
+        console.log('seconds set to',_seconds);
+       } else {
+        _seconds=4;
+        console.log('seconds set to default of ', _seconds);
+      };
+
+
       console.log('seconds set to',_seconds);
         var miliseconds=_seconds*1000;
         var tab=_tab;

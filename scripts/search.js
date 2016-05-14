@@ -2500,11 +2500,13 @@ chrome.storage.sync.get('adTopic', function(topic) {
     //console.log(searchArrays.fitness);
     var searchTerms;
 
-    if (searchArrays[_topic].length > 2) {
+    if (searchArrays[_topic]) {
         searchTerms = searchArrays[_topic];
     } else {
         searchTerms = searchArrays.fitness;
     }
+
+    console.log(searchTerms);
 
     var _index = Math.floor((Math.random() * searchTerms.length) + 1);
 
