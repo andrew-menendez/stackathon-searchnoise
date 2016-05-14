@@ -2,37 +2,22 @@
 
 //var red= require('./red.js');
 
+var _topic;
+
+chrome.storage.sync.get('adTopic',function(topic){
+
+  _topic=topic.adTopic;
+
+  console.log(_topic);
+})
+
 
 
 chrome.browserAction.onClicked.addListener(function(tab) {
 
-  var newURL = "http://www.google.com/";
+console.log(_topic);
 
-  var operation="search";
-
-  var toggleOp = function(_operation){
-    if(_operation==="search"){
-      operation="click";
-    } else if (_operation==="click"){
-      operation="search";
-    }
-
-  };
-
-  // cant seem to get timer to work, trying a loop instead
-
-  // var myVar = setInterval(myTimer, 2000);
-
-  // function myTimer(operation,_tab) {
-  //   if(operation==="search"){
-  //     chrome.tabs.executeScript(_tab.Id,{file:"search.js"});
-  //   } else if (operation==="click"){
-  //     chrome.tabs.executeScript(_tab.Id,{file:"red.js"})
-  //   }
-  //   toggleOp(operation);
-  // }
-
-  //loop version
+var newURL = "http://www.google.com/";
 
 var baseTab;
 
@@ -41,11 +26,16 @@ var doSearch = function(_tab){
     console.log(baseTab.id)
 
     if(_tab.Id===baseTab.Id){
-       chrome.tabs.executeScript(baseTab.id,{file:"search.js"},function(array){
-        setTimeout(doClick, 3000,baseTab);
-      });
-    }
 
+      chrome.tabs.executeScript(baseTab.id,{
+        code:'var'
+      })
+
+      chrome.tabs.executeScript(baseTab.id,{file:"search.js"},function(array){
+        console.log('executed search.js');
+          setTimeout(doClick, 3000,baseTab);
+        });
+    };
 
   };
 var doClick = function(_tab){
@@ -59,8 +49,6 @@ var doClick = function(_tab){
 
       });
 };
-
-
 
   chrome.tabs.create({ url: newURL }, function(_tab){
     console.log(_tab);

@@ -1,12 +1,12 @@
 {
-  "name": "Hello World!",
+  "name": "Player Two",
   "version":"1.0",
   "manifest_version":2,
-  "description": "My first Chrome extension.",
-  "permissions": ["activeTab","tabs","http://*/","https://*/"],
+  "description": "White Noise for your Google Searches",
+  "permissions": ["storage","activeTab","tabs","http://*/","https://*/"],
   "browser_action": {
     "default_icon": "MushroomIcon.png",
-     "default_title": "Click here!"
+    "default_title": "Turn on White Noise"
   },
   "background": {
     //"page":"background.html",
