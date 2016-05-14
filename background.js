@@ -18,7 +18,7 @@ var doSearch = function(_tab){
 
           chrome.tabs.executeScript(baseTab.id,{file:"/scripts/search.js"},function(array){
             console.log('executed search.js');
-              setTimeout(doClick, 3000,baseTab);
+              setTimeout(doClick, 5000,baseTab);
             });
         };
 };
@@ -32,7 +32,7 @@ var doClick = function(_tab){
                 chrome.tabs.update(baseTab.id,{url:newURL}, function(array){
                 setTimeout(doSearch, 2000,baseTab);
               })
-            },4000);
+            },5000);
 
           });
     };
