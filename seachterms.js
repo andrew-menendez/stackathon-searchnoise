@@ -1,17 +1,4 @@
-var _topic;
-
-chrome.storage.sync.get('adTopic', function(topic) {
-
-    _topic = topic.adTopic;
-
-    console.log('this is in the search file', _topic);
-
-    window.location.href = 'https://www.google.com/';
-
-    var _formArray = document.querySelectorAll('form');
-
-
-    var searchArrays = {
+var searchArrays = {
         travel: ["Travel to Spain",
                 "trip to spain",
                 "flights to spain",
@@ -2497,20 +2484,3 @@ chrome.storage.sync.get('adTopic', function(topic) {
             "on line lessons"
         ]
     };
-    //console.log(searchArrays.fitness);
-    var searchTerms;
-
-    if (searchArrays[_topic].length > 2) {
-        searchTerms = searchArrays[_topic];
-    } else {
-        searchTerms = searchArrays.fitness;
-    }
-
-    var _index = Math.floor((Math.random() * searchTerms.length) + 1);
-
-    if (_formArray[0]) {
-        _formArray[0].q.value = searchTerms[_index];
-        _formArray[0].submit();
-    }
-
-})

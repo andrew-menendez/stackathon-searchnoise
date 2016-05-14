@@ -5,6 +5,7 @@ var state;
 var newURL = "http://www.google.com/";
 var baseTab;
 
+
 var doSearch = function(_tab){
         var tab=_tab;
         console.log(baseTab.id)
