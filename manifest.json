@@ -5,8 +5,14 @@
   "description": "White Noise for your Google Searches",
   "permissions": ["storage","activeTab","tabs","http://*/","https://*/"],
   "browser_action": {
-    "default_icon": "MushroomIcon.png",
+    "default_icon": "icons/MushroomIcon.png",
     "default_title": "Turn on White Noise"
+    // "default_popup": "popup.html"
+  },
+  "icons":{
+    "16":"/icons/MushroomIcon.png",
+    "48":"/icons/Mushroom-48.png",
+    "128":"/icons/Mushroom---Super-128.png"
   },
   "background": {
     //"page":"background.html",
